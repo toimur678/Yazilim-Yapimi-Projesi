@@ -8,7 +8,7 @@ const Report = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/report")
+      .get("http://localhost:3000/auth/report") // Fetching the full report from the database
       .then((response) => {
         if (response.data.Status) {
           setReport(response.data.Result);
@@ -19,6 +19,7 @@ const Report = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  // Function to download the report as a PDF
   const downloadPDF = () => {
     const input = document.getElementById("report-table");
     html2canvas(input).then((canvas) => {

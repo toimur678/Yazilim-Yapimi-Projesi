@@ -8,13 +8,13 @@ const Start = () => {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:3000/verify")
+      .get("http://localhost:3000/verify") // Verifying the user's session
       .then((result) => {
         if (result.data.Status) {
           if (result.data.role === "admin") {
             navigate("/dashboard");
           } else {
-            navigate("/employee_detail/" + result.data.id);
+            navigate("/" + result.data.id);
           }
         }
       })

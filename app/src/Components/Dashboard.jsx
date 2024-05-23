@@ -4,21 +4,25 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
 
 const Dashboard = () => {
-  const anvigate = useNavigate();
+  const navigate = useNavigate();
   axios.defaults.withCredentials = true;
+  // Logout function
   const handleLogout = () => {
     axios.get("http://localhost:3000/auth/logout").then((result) => {
       if (result.data.Status) {
         localStorage.removeItem("valid");
-        anvigate("/");
+        navigate("/");
       }
     });
   };
   return (
-    <div className="container-fluid" >
+    <div className="container-fluid">
       <div className="row flex-nowrap">
-        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success bg-gradient" style={{position: 'fixed'}}>
-          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" >
+        <div
+          className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success bg-gradient"
+          style={{ position: "fixed" }}
+        >
+          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
             <Link
               to="/dashboard"
               className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none"
@@ -71,7 +75,9 @@ const Dashboard = () => {
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi bi-cloud-arrow-down ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Report Download</span>
+                  <span className="ms-2 d-none d-sm-inline">
+                    Report Download
+                  </span>
                 </Link>
               </li>
               <li className="w-100" onClick={handleLogout}>
@@ -83,9 +89,12 @@ const Dashboard = () => {
             </ul>
           </div>
         </div>
-        <div className="col p-0 m-0" >
-          <div className="p-4 d-flex justify-content-center shadow" style={{ marginLeft: "250px" }}>
-            <h1>WORD GUESSING GAME v.1.0</h1>
+        <div className="col p-0 m-0">
+          <div
+            className="p-4 d-flex justify-content-center shadow"
+            style={{ marginLeft: "250px" }}
+          >
+            <h1>WORD GUESSING GAME</h1>
           </div>
           <Outlet />
         </div>

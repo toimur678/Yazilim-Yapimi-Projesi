@@ -3,15 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const ManageWords = () => {
-  const [employee, setEmployee] = useState([]);
-  const navigate = useNavigate();
+  const [words, setWords] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:3000/auth/words") // Gets data from the server table named "words"
       .then((result) => {
         if (result.data.Status) {
-          setEmployee(result.data.Result);
+          setWords(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -20,7 +19,7 @@ const ManageWords = () => {
   }, []);
   const handleDelete = (id) => {
     axios
-      .delete("http://localhost:3000/auth/delete_words/" + id)
+      .delete("http://localhost:3000/auth/delete_words/" + id) // Deletes the selected word from the database
       .then((result) => {
         if (result.data.Status) {
           window.location.reload();
@@ -30,7 +29,7 @@ const ManageWords = () => {
       });
   };
   return (
-    <div className="px-5 mt-3"  style={{marginLeft: '250px'}}>
+    <div className="px-5 mt-3" style={{ marginLeft: "250px" }}>
       <div className="p-3 d-flex justify-content-center ml-10">
         <h3>All word list</h3>
       </div>
@@ -49,7 +48,7 @@ const ManageWords = () => {
             </tr>
           </thead>
           <tbody>
-            {employee.map((e) => (
+            {words.map((e) => (
               <tr>
                 <td>{e.english}</td>
                 <td>{e.turkish}</td>

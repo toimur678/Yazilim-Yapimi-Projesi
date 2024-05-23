@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const SignUP = () => {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState({ // Setting the initial state of the user
     name: "",
     surname: "",
     age: "",
@@ -19,14 +19,20 @@ const SignUP = () => {
     setUser((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { // Submitting the form
     e.preventDefault();
-    if (!user.name || !user.surname || !user.age || !user.email || !user.password) {
+    if (
+      !user.name ||
+      !user.surname ||
+      !user.age ||
+      !user.email ||
+      !user.password
+    ) {
       alert("All fields are required");
       return;
     }
     axios
-      .post("http://localhost:3000/auth/add_player", {
+      .post("http://localhost:3000/auth/add_player", { // Adding a new player to the database
         name: user.name,
         surname: user.surname,
         age: user.age,
@@ -48,7 +54,7 @@ const SignUP = () => {
       <div className="p-3 rounded w-25 border loginForm">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+          <div className="mb-3">
             <label htmlFor="name">
               <strong>Name:</strong>
             </label>
@@ -112,7 +118,7 @@ const SignUP = () => {
               onChange={handleInputChange}
             />
           </div>
-          
+
           <button
             className="btn btn-primary w-100 rounded-100 mb-2 mt-3"
             type="submit"

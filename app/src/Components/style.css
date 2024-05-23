@@ -36,7 +36,8 @@ ul li :hover {
 
 .wide-button {
   width: 40%;
-  font-size: 20px; /* adjust this value as needed */
+  font-size: 20px;
+  /* adjust this value as needed */
 }
 
 .text {

@@ -4,13 +4,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
+  // Setting the initial state of the user
   const [user, setUser] = useState({
     email: "",
     password: "",
     otp: "",
   });
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Navigating to the admin login page
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +26,7 @@ const ForgotPassword = () => {
     }
     axios
       .put("http://localhost:3000/auth/resetpass", {
+        // Resetting the password
         email: user.email,
         password: user.password,
         otp: user.otp,

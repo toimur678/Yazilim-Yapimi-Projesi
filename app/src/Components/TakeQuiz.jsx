@@ -4,16 +4,16 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const TakeQuiz = () => {
   const { id } = useParams();
-  const [employee, setEmployee] = useState([]);
+  const [random, setRandom] = useState([]);
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/random_word") // Gets data from the server table named "words"
+      .get("http://localhost:3000/auth/random_word") // Fetching random words from the database
       .then((result) => {
         if (result.data.Status) {
-          setEmployee(result.data.Result);
+          setRandom(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -23,8 +23,8 @@ const TakeQuiz = () => {
     axios
       .get("http://localhost:3000/auth/random_word/" + id)
       .then((result) => {
-        setEmployee({
-          ...employee,
+        setRandom({
+          ...random,
           english: result.data.Result[0].english,
           turkish: result.data.Result[0].turkish,
         });
@@ -34,7 +34,7 @@ const TakeQuiz = () => {
 
   const handleRefresh = () => {
     axios
-      .delete("http://localhost:3000/auth/post_random_words")
+      .delete("http://localhost:3000/auth/post_random_words") // Getting new random words from the database
       .then((result) => {
         if (result.data.Status) {
           window.location.reload();
@@ -47,7 +47,7 @@ const TakeQuiz = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/auth/all_ans_submit")
+      .post("http://localhost:3000/auth/all_ans_submit") // Submitting all answers to the database
       .then((result) => {
         if (result.data.loginStatus) {
           navigate("/dashboard/result");
@@ -88,7 +88,7 @@ const TakeQuiz = () => {
             </tr>
           </thead>
           <tbody>
-            {employee.map((e) => (
+            {random.map((e) => (
               <tr key={e.id}>
                 <td>
                   <img

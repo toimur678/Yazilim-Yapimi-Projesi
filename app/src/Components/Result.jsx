@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Result = () => {
-  const { id } = useParams();
   const [latestscore, setScore] = useState({
     score: "",
   });
@@ -12,7 +11,7 @@ const Result = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/score_result")
+      .get("http://localhost:3000/auth/score_result") // Fetching the final score from the database
       .then((result) => {
         if (result.data.Status) {
           setScore(result.data.Result);
@@ -26,7 +25,7 @@ const Result = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/auth/final_submit")
+      .post("http://localhost:3000/auth/final_submit") // Submitting the final score to the database
       .then((result) => {
         if (result.data.loginStatus) {
           navigate("/dashboard");
@@ -35,7 +34,7 @@ const Result = () => {
         }
       })
       .catch((err) => console.log(err));
-    };
+  };
 
   return (
     <div className="px-5 mt-3" style={{ marginLeft: "250px" }}>
@@ -45,10 +44,16 @@ const Result = () => {
       <div className="p-3 d-flex justify-content-center">
         <h1>{latestscore.score}</h1>
       </div>
-      {error && <div className="d-flex justify-content-center align-items-center mt-3 text-danger">{error}</div>}
+      {error && (
+        <div className="d-flex justify-content-center align-items-center mt-3 text-danger">
+          {error}
+        </div>
+      )}
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <button className="p-3 d-flex justify-content-center btn btn-success w-25 wide-button ms-3 mt-3"
-        onClick={handleSubmit}>
+        <button
+          className="p-3 d-flex justify-content-center btn btn-success w-25 wide-button ms-3 mt-3"
+          onClick={handleSubmit}
+        >
           Next
         </button>
       </div>

@@ -13,7 +13,7 @@ const Quiz = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/result_history")
+      .get("http://localhost:3000/auth/result_history") // Fetching the exam history from the database
       .then((response) => {
         if (response.data.Status) {
           setResult(response.data.Result);
@@ -25,13 +25,11 @@ const Quiz = () => {
   }, []);
 
   useEffect(() => {
-    // Inside your useEffect for fetching time
     axios
-      .get("http://localhost:3000/auth/check_time")
+      .get("http://localhost:3000/auth/check_time") // Checking the time for the next quiz test
       .then((response) => {
-        console.log("check_time response: ", response.data); // Debugging line
+        console.log("check_time response: ", response.data);
         if (response.data.Status) {
-          // Accessing the first element of the array to get time_result
           setTime(response.data.Result[0].time_result);
         } else {
           alert(response.data.Error);
@@ -42,9 +40,9 @@ const Quiz = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/remaining_time")
+      .get("http://localhost:3000/auth/remaining_time") // Checking the remaining time for the next quiz test
       .then((response) => {
-        console.log("remaining_time response: ", response.data); // Debugging line
+        console.log("remaining_time response: ", response.data);
         if (response.data.Status) {
           setRemainingTime(response.data.Result);
         } else {
@@ -66,7 +64,8 @@ const Quiz = () => {
         </Link>
       ) : (
         <Link className="btn btn-danger w-20">
-          Time remaining for next quiz test<br />
+          Time remaining for next quiz test
+          <br />
           {remainingTime.timeDiff}
         </Link>
       )}
