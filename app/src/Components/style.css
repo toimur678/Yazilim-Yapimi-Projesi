@@ -1,0 +1,44 @@
+.loginPage {
+  background: url("Images/words.jpg");
+  background: linear-gradient(rgba(11, 11, 11, 0.217), rgba(10, 10, 10, 0.192)),
+    url("Images/words.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 120%;
+}
+
+.loginForm {
+  background-color: rgba(23, 24, 25, 0.6);
+  color: white;
+}
+
+ul li :hover {
+  background-color: gray;
+}
+
+.image {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.image_question {
+  width: 120px;
+  height: 90px;
+  border-radius: 10%;
+}
+
+.emp_det_image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.wide-button {
+  width: 40%;
+  font-size: 20px; /* adjust this value as needed */
+}
+
+.text {
+  font-size: 30px;
+}
