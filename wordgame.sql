@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 08:37 PM
+-- Generation Time: May 23, 2024 at 10:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -208,11 +208,12 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `surname`, `age`, `email`, `password`) VALUES
-(1, 'Toimur', 'Hasan', 22, 'toimur@gmail.com', '123000'),
+(1, 'Toimur', 'Hasan', 22, 'toimur@gmail.com', '000000'),
 (2, 'Ebrar Serra', 'Baysal', 21, 'serra@gmail.com', '123000'),
 (3, 'Usaid', 'Alhadeethi', 20, 'usaidahmed40@gmail.com', '123000'),
 (4, 'Soheyb', 'Boutadjine', 22, 'soheyb@gmail.com', '123000'),
-(5, 'Example', '', 22, 'example@gmail.com', '123000');
+(5, 'Deniz', 'Burak', 22, 'burak@gmail.com', '000000'),
+(6, 'test', 'test', 12, 'test@gmail.com', '123456');
 
 -- --------------------------------------------------------
 
@@ -231,13 +232,12 @@ CREATE TABLE `answers` (
 --
 
 INSERT INTO `answers` (`id`, `turkish`, `sentence`) VALUES
-(163, 'elma', 'I have 10 apples'),
-(164, 'top', 'I am playing with a ball.'),
-(165, 'eşek', 'Donkey is an animal.'),
-(166, 'yumurta', 'I eat two eggs in breakfast.'),
-(167, 'çiçek', 'Flowers smell nice.'),
-(168, 'zürafa', 'Giraffe is an large animal.'),
-(169, 'at', 'Horse can run very fast.');
+(204, 'top', 'I am playing with a ball.'),
+(205, 'eşek', 'Donkey is an animal.'),
+(206, 'yumurta', 'I eat two eggs in breakfast.'),
+(207, 'çicek', 'Flowers smell nice.'),
+(208, 'at', 'Horse can run very fast.'),
+(209, 'dondurma', 'I dont love ice-cream.');
 
 -- --------------------------------------------------------
 
@@ -255,7 +255,7 @@ CREATE TABLE `counter_table` (
 --
 
 INSERT INTO `counter_table` (`id`, `counter`) VALUES
-(1, 1);
+(1, 4);
 
 -- --------------------------------------------------------
 
@@ -296,7 +296,21 @@ INSERT INTO `loginhistory` (`id`, `name`, `email`) VALUES
 (20, 'Ebrar Serra', 'serra@gmail.com'),
 (21, 'Toimur', 'toimur@gmail.com'),
 (22, 'Ebrar Serra', 'serra@gmail.com'),
-(23, 'Toimur', 'toimur@gmail.com');
+(23, 'Toimur', 'toimur@gmail.com'),
+(24, 'test', 'test@gmail.com'),
+(25, 'Deniz', 'burak@gmail.com'),
+(26, 'Deniz', 'burak@gmail.com'),
+(27, 'test', 'test@gmail.com'),
+(28, 'Deniz', 'burak@gmail.com'),
+(29, 'Burak', 'burak@gmail.com'),
+(30, 'Deniz', 'burak@gmail.com'),
+(31, 'Deniz', 'burak@gmail.com'),
+(32, 'Deniz', 'burak@gmail.com'),
+(33, 'Toimur', 'toimur@gmail.com'),
+(34, 'Deniz', 'burak@gmail.com'),
+(35, 'Deniz', 'burak@gmail.com'),
+(36, 'test', 'test@gmail.com'),
+(37, 'Toimur', 'toimur@gmail.com');
 
 --
 -- Triggers `loginhistory`
@@ -383,7 +397,12 @@ INSERT INTO `resulthistory` (`id`, `loginID`, `date`, `time`, `score`) VALUES
 (37, 2, '2024-05-22', '12:07:29', 6),
 (38, 1, '2024-05-22', '12:08:40', 1),
 (39, 1, '2024-05-22', '12:26:39', 6),
-(40, 2, '2024-05-22', '12:30:07', 7);
+(40, 2, '2024-05-22', '12:30:07', 7),
+(41, 5, '2024-05-22', '22:24:45', 4),
+(42, 5, '2024-05-22', '22:25:48', 6),
+(43, 5, '2024-05-22', '22:42:49', 6),
+(44, 6, '2024-05-23', '23:17:33', 0),
+(45, 6, '2024-05-23', '23:18:16', 6);
 
 -- --------------------------------------------------------
 
@@ -452,7 +471,24 @@ INSERT INTO `timerend` (`timerID`, `playerID`, `timeEND`) VALUES
 (25, 1, '12:31:42'),
 (26, 2, '12:28:07'),
 (27, 2, '12:36:15'),
-(28, 1, '21:17:27');
+(28, 1, '21:17:27'),
+(29, 6, '22:07:16'),
+(30, 5, '22:10:25'),
+(31, 5, '22:11:18'),
+(32, 6, '22:13:17'),
+(33, 5, '22:14:22'),
+(34, 5, '22:18:12'),
+(35, 5, '22:21:10'),
+(36, 5, '22:22:01'),
+(37, 5, '22:26:50'),
+(38, 5, '22:36:55'),
+(39, 1, '22:37:57'),
+(40, 5, '22:38:36'),
+(41, 5, '22:39:15'),
+(42, 5, '22:44:51'),
+(43, 6, '23:14:34'),
+(44, 6, '23:21:17'),
+(45, 1, '23:19:06');
 
 -- --------------------------------------------------------
 
@@ -476,7 +512,10 @@ INSERT INTO `wordlimit` (`limitID`, `newLimit`) VALUES
 (4, 6),
 (5, 7),
 (6, 6),
-(7, 7);
+(7, 7),
+(8, 6),
+(9, 8),
+(10, 6);
 
 -- --------------------------------------------------------
 
@@ -497,7 +536,7 @@ CREATE TABLE `words` (
 --
 
 INSERT INTO `words` (`id`, `english`, `turkish`, `sentence`, `image`) VALUES
-(1, 'Apple', 'Elma', 'I have 10 apples', 'image_1715522718931.jpg'),
+(1, 'Apple', 'Elma', 'I have 15 apples.', 'image_1715522718931.jpg'),
 (2, 'Ball', 'Top', 'I am playing with a ball.', 'image_1715522803553.jpg'),
 (4, 'Cat', 'Kedi', 'Cats are friendly', 'image_1715530171198.jpg'),
 (13, 'Donkey', 'Eşek', 'Donkey is an animal.', 'image_1716203038834.jpg'),
@@ -505,8 +544,7 @@ INSERT INTO `words` (`id`, `english`, `turkish`, `sentence`, `image`) VALUES
 (15, 'Flower', 'Çicek', 'Flowers smell nice.', 'image_1716203125030.jpg'),
 (16, 'Giraffe', 'Zürafa', 'Giraffe is an large animal.', 'image_1716203218249.webp'),
 (17, 'Horse', 'At', 'Horse can run very fast.', 'image_1716203695975.webp'),
-(18, 'Ice-cream ', 'Dondurma ', 'I love ice-cream', 'image_1716204714769.jpg'),
-(19, 'Juice', 'Meyve suyu', 'Juice is good for health.', 'image_1716204830273.jpg');
+(18, 'Ice-cream ', 'Dondurma ', 'I dont love ice-cream.', 'image_1716204714769.jpg');
 
 -- --------------------------------------------------------
 
@@ -583,13 +621,13 @@ ALTER TABLE `words`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
 
 --
 -- AUTO_INCREMENT for table `counter_table`
@@ -601,37 +639,37 @@ ALTER TABLE `counter_table`
 -- AUTO_INCREMENT for table `loginhistory`
 --
 ALTER TABLE `loginhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `random`
 --
 ALTER TABLE `random`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `resulthistory`
 --
 ALTER TABLE `resulthistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `timerend`
 --
 ALTER TABLE `timerend`
-  MODIFY `timerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `timerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `wordlimit`
 --
 ALTER TABLE `wordlimit`
-  MODIFY `limitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `limitID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `words`
 --
 ALTER TABLE `words`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
