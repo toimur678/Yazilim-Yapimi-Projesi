@@ -66,22 +66,7 @@ const Answer = () => {
               }
             />
           </div>
-          {/**<div className="col-12">
-            <label for="inputSentence" className="form-label">
-              Make a sentence in English
-            </label>
-            <input
-              type="text"
-              className="form-control rounded-100"
-              id="inputSentence"
-              value={employee.sentence}
-              onChange={(e) =>
-                setEmployee({ ...employee, sentence: e.target.value })
-              }
-            />
-          </div> */}
           
-
           <div>
             <label for="hidden" className="form-label"></label>
             <input type="hidden" />
