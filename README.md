@@ -1,7 +1,7 @@
-# Yazılım Yapımı Final Projesi
+# Yazılım Yapımı Final Projesi (Software Construction Project)
 
 ## Description
-This project is developed for the "Yazılım Yapımı" course. Follow the steps below to run the project:
+This project is developed for the "Yazılım Yapımı (software Construction)" course. Follow the steps below to run the project:
 
 ## Prerequisites
 Before running this project, ensure you have the following installed:
