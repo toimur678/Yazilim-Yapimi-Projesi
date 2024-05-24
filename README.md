@@ -1,7 +1,9 @@
 # Yazılım Yapımı Final Projesi (Software Construction Project)
 
 ## Description
-This project is developed for the "Yazılım Yapımı (software Construction)" course. Follow the steps below to run the project:
+This project is developed for the "Yazılım Yapımı (software Construction)" course
+Supervisor Dr.Emin BORANDAĞ (Manisa Celal Bayar University Hasan Ferdi Technology Faculty )
+Follow the steps below to run the project:
 
 ## Prerequisites
 Before running this project, ensure you have the following installed:
