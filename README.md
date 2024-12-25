@@ -49,6 +49,5 @@ Once the project is set up and running, you can access it by navigating to `http
 
 ## Contributors
 - Toimur Hasan
-- Ebrar Serra Baysal
 - Usaid Alhadeethi
 - Soheyb Boutadjine
